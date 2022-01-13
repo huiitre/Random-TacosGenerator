@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <title>Générateur de tacos aléatoire</title>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Générateur de tacos aléatoire</h1>
+    </header>
+    <main class="">
+      <div class="row">
+        <h4>Liste des ingrédients</h4>
+        <section class="viande col-3">
+          <h3>Viandes</h3>
+          <ul>
+            <li>
+              <input type="checkbox" name="Végétarien" id="Végétarien" value="1" checked> <label for="Végétarien">Végétarien</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Viande hachée" id="Viande hachée" value="2" checked> <label for="Viande hachée">Viande hachée</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Tenders" id="Tenders" value="3" checked> <label for="Tenders">Tenders</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Escalope" id="Escalope" value="4" > <label for="Escalope">Escalope</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Nuggets" id="Nuggets" value="5" > <label for="Nuggets">Nuggets</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Poulet tikka" id="Poulet tikka" value="6" > <label for="Poulet tikka">Poulet tikka</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Thon" id="Thon" value="7" > <label for="Thon">Thon</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Merguez" id="Merguez" value="8" > <label for="Merguez">Merguez</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Kébab" id="Kébab" value="9" > <label for="Kébab">Kébab</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Cordon bleu" id="Cordon bleu" value="10" > <label for="Cordon bleu">Cordon bleu</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Poisson" id="Poisson" value="11" > <label for="Poisson">Poisson</label>
+            </li>
+          </ul>
+        </section>
+  
+        <section class="sauce col-3">
+          <h3>Sauces</h3>
+          <ul>
+            <li>
+              <input type="checkbox" name="Ketchup" id="Ketchup" value="1"> <label for="Ketchup">Ketchup</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Mayonnaise" id="Mayonnaise" value="2" checked> <label for="Mayonnaise">Mayonnaise</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Samuraï" id="Samuraï" value="3" checked> <label for="Samuraï">Samuraï</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Curry" id="Curry" value="4" > <label for="Curry">Curry</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Blanche" id="Blanche" value="5" > <label for="Blanche">Blanche</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Algérienne" id="Algérienne" value="6" checked> <label for="Algérienne">Algérienne</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Barbecue" id="Barbecue" value="7" > <label for="Barbecue">Barbecue</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Fromage" id="Fromage" value="8" checked> <label for="Fromage">Fromage</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Marocaine" id="Marocaine" value="9" checked> <label for="Marocaine">Marocaine</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Poivre" id="Poivre" value="10" > <label for="Poivre">Poivre</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Moutarde" id="Moutarde" value="11" checked> <label for="Moutarde">Moutarde</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Harissa" id="Harissa" value="12" > <label for="Harissa">Harissa</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Tartare" id="Tartare" value="13" > <label for="Tartare">Tartare</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Fish" id="Fish" value="14" > <label for="Fish">Fish</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Biggy burger" id="Biggy burger" value="15" checked> <label for="Biggy burger">Biggy burger</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Pitaïoli" id="Pitaïoli" value="16" checked> <label for="Pitaïoli">Pitaïoli</label>
+            </li>
+            <li>
+              <input type="checkbox" name="Tunisienne" id="Tunisienne" value="17" checked> <label for="Tunisienne">Tunisienne</label>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="row">
+        <h4>Génère ton tacos mon reuf</h4>
+        <section class="nb-viande col-3">
+          <h5>Nombre de viandes</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="supp-viande" id="viande1" value="1" checked>
+            <label class="form-check-label" for="viande1">
+              1
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="supp-viande" id="viande2" value="2">
+            <label class="form-check-label" for="viande2">
+              2
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="supp-viande" id="viande3" value="3">
+            <label class="form-check-label" for="viande3">
+              3
+            </label>
+          </div>
+        </section>
+  
+        <section class="nb-sauce col-3">
+          <h5>Nombre de sauces</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="supp-sauce" id="sauce1" value="1" checked>
+            <label class="form-check-label" for="sauce1">
+              1
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="supp-sauce" id="sauce2" value="2">
+            <label class="form-check-label" for="sauce2">
+              2
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="supp-sauce" id="sauce3" value="3">
+            <label class="form-check-label" for="sauce3">
+              3
+            </label>
+          </div>
+        </section>
+      </div>
+
+      <div class="row">
+        
+        <section class="submit">
+          <label for="name">Nom</label>
+          <input type="text" id="name" class="input-name">
+          <button type="button" class="btn btn-primary">Valider</button>
+        </section>
+        <section class="result">
+          <h4>Tacos générés</h4>
+          <ul>
+            <!-- <li><i class="bi bi-x-square-fill"></i>
+              <span>sdqdqd</span> : <span>qdsdsqdqs</span>
+            </li> -->
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!-- JavaScript app -->
+<script src="assets/js/app.js"></script>
+</body>
+</html>
