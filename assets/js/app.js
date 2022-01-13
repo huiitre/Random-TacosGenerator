@@ -20,14 +20,29 @@ const app = {
     //* on récupère toute les sauces cochés
     const allSauces = document.querySelectorAll('.sauce input:checked');
 
+    //* on récupère tous les légumes cochés
+    const allLegumes = document.querySelectorAll('.legume input:checked');
+
     //* on récup le choix du nb de viande et sauce de l'utilisateur
     const nbViande = document.querySelector('.nb-viande input:checked').value;
     const nbSauce = document.querySelector('.nb-sauce input:checked').value;
 
     app.displayTacos(
       app.createTacos(allViandes, nbViande),
-      app.createTacos(allSauces, nbSauce)
+      app.createTacos(allSauces, nbSauce),
+      app.addLegumes(allLegumes)
     );
+  },
+
+  addLegumes: function(array) {
+    console.log('here');
+    console.log(array);
+    const arr = [];
+
+    for (let val of array) {
+      arr.push(val.name);
+    }
+    return arr;
   },
 
   createTacos: function(array, nb) {
@@ -86,7 +101,7 @@ const app = {
     return a - b;
   },
 
-  displayTacos: function(viandes, sauces) {
+  displayTacos: function(viandes, sauces, legumes) {
 
     const inputValue = document.querySelector('#name').value;
 
@@ -113,9 +128,15 @@ const app = {
     let sauceList = sauces.join(' - ');
     spanSauce.textContent = ' | ' + sauceList;
 
+    //todo légumes
+    const spanLegume = document.createElement('span');
+    spanLegume.classList.add('legume-span');
+    let legumeList = legumes.join(' - ');
+    spanLegume.textContent = ' | ' + legumeList;
+
     btnDelete.addEventListener('click', app.removeTacos);
     
-    li.append(btnDelete, spanName, spanViande, spanSauce);
+    li.append(btnDelete, spanName, spanViande, spanSauce, spanLegume);
     ul.prepend(li);
     
     } else {
