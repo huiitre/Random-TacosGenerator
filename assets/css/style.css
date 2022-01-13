@@ -1,13 +1,11 @@
 body {
   background-color: antiquewhite;
-  background-image: url(../img/tacos.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #ffffff;
+  color: #000;
   font-size: 22px;
 }
 .prenom {
   font-weight: bold;
+}
+img {
+  width: 50%;
 }
