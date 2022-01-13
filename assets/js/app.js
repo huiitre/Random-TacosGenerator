@@ -13,8 +13,6 @@ const app = {
   },
 
   handleSubmit: function(evt) {
-    //* on récup le nom
-    const nameInput = document.querySelector('.input-name');
 
     //* on récupère toute les viandes cochés
     const allViandes = document.querySelectorAll('.viande input:checked');
@@ -22,70 +20,61 @@ const app = {
     //* on récupère toute les sauces cochés
     const allSauces = document.querySelectorAll('.sauce input:checked');
 
-    //* on récup les viande et sauce
+    //* on récup le choix du nb de viande et sauce de l'utilisateur
     const nbViande = document.querySelector('.nb-viande input:checked').value;
-    // console.log('supp viande : ' + suppViande.value);
-    const nbSauce = document.querySelector('.nb-sauce input:checked');
-    // console.log('supp sauce : ' + suppSauce.value);
+    const nbSauce = document.querySelector('.nb-sauce input:checked').value;
 
+    app.displayTacos(
+      app.createTacos(allViandes, nbViande),
+      app.createTacos(allSauces, nbSauce)
+    );
+  },
+
+  createTacos: function(array, nb) {
     //* on déclare un tab allViandesArray qui va contenir les viandes sélectionnés
-    var allViandesArray = [];
+    var arrayValues = [];
 
-    if (allViandes.length >= nbViande) {
+    if (array.length >= nb) {
 
-      //* on stock toute les values de allViandes dans le tab allViandesArray
-      for (let val of allViandes) {
-        allViandesArray.push(val.value);
+      //* on stock toute les values de l'array dans le tab arrayValues
+      for (let val of array) {
+        arrayValues.push(val.value);
       }
 
-      console.log('---------- debut ----------');
-
-      var randomViande = [];
-      var randomNameViande = [];
+      var random = [];
+      var randomName = [];
       
       var i = 0;
-      //* tant que randomViande n'est pas en length 3
-      while (i != nbViande) {
-        randomViande.push(allViandesArray.splice(app.randomArray(allViandesArray), 1));
+      //* tant que random n'est pas en length 3
+      while (i != nb) {
+        random.push(arrayValues.splice(app.randomArray(arrayValues), 1));
         i++;
       }
-      // console.log(allViandesArray); log qui montre le restant (pas intéressant)
+      // console.log(arrayValues); log qui montre le restant (pas intéressant)
       //* on stock les viandes dans un tableau plus propre
-      let newRandomViande = [];
-      for (let index in randomViande) {
-        for (let val of randomViande[index]) {
-          newRandomViande.push(val);
+      let randomClean = [];
+      for (let index in random) {
+        for (let val of random[index]) {
+          randomClean.push(val);
         }
       }
 
       //* on trie du plus petit au plus grand
-      newRandomViande.sort(app.compareNombres);
+      randomClean.sort(app.compareNombres);
       
       let j = 0;
       
-      for (let val of allViandes) {
-        if (val.value == newRandomViande[j]) {
-          randomNameViande.push(val.name);
+      for (let val of array) {
+        if (val.value == randomClean[j]) {
+          randomName.push(val.name);
           j++;
         }
       }
-      console.log(randomNameViande);
-      console.log(newRandomViande);
-      console.log(nameInput.value);
-
-      if (nameInput.value !== '') {
-        app.displayTacos(nameInput.value, randomNameViande);
-        nameInput.value = '';
-      } else {
-        alert('Veuillez remplir le champ "Nom" !');
-      }
+      return randomName;
     } else {
-      alert('Choisis plus de viandes !');g
+      alert('Choisis plus de viandes !');
+      return false;
     }
-  },
-
-  createViande: function() {
-
   },
 
   randomArray: function(array) {
@@ -97,9 +86,12 @@ const app = {
     return a - b;
   },
 
-  displayTacos: function(name, viandes) {
+  displayTacos: function(viandes, sauces) {
 
-    //* on récupère la section
+    const inputValue = document.querySelector('#name').value;
+
+    if (inputValue !== '') {
+      //* on récupère la section
     const section = document.querySelector('section.result');
     const ul = document.querySelector('.result ul');
     const btnDelete = document.createElement('i');
@@ -107,15 +99,28 @@ const app = {
     const li = document.createElement('li');
     const spanName = document.createElement('span');
     spanName.classList.add('prenom');
+
+    //todo viande
     const spanViande = document.createElement('span');
-    spanName.textContent = ' ' + name + ' : ';
+    spanViande.classList.add('viande-span');
+    spanName.textContent = ' ' + inputValue + ' : ';
     let viandeList = viandes.join(' - ');
     spanViande.textContent = viandeList;
 
+    //todo sauce
+    const spanSauce = document.createElement('span');
+    spanSauce.classList.add('sauce-span');
+    let sauceList = sauces.join(' - ');
+    spanSauce.textContent = ' | ' + sauceList;
+
     btnDelete.addEventListener('click', app.removeTacos);
     
-    li.append(btnDelete, spanName, spanViande);
+    li.append(btnDelete, spanName, spanViande, spanSauce);
     ul.prepend(li);
+    
+    } else {
+      alert('error');
+    }
   },
 
   removeTacos: function(evt) {
