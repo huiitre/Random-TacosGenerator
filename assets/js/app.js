@@ -35,8 +35,6 @@ const app = {
   },
 
   addLegumes: function(array) {
-    console.log('here');
-    console.log(array);
     const arr = [];
 
     for (let val of array) {
@@ -87,7 +85,7 @@ const app = {
       }
       return randomName;
     } else {
-      alert('Choisis plus de viandes !');
+      alert('Allooo, y a quelqu\'un là-dedans McFly ?!');
       return false;
     }
   },
@@ -103,44 +101,48 @@ const app = {
 
   displayTacos: function(viandes, sauces, legumes) {
 
-    const inputValue = document.querySelector('#name').value;
+    let input = document.querySelector('#name');
+    let inputValue = input.value;
 
     if (inputValue !== '') {
       //* on récupère la section
-    const section = document.querySelector('section.result');
-    const ul = document.querySelector('.result ul');
-    const btnDelete = document.createElement('i');
-    btnDelete.classList.add('bi', 'bi-x-square-fill');
-    const li = document.createElement('li');
-    const spanName = document.createElement('span');
-    spanName.classList.add('prenom');
+      const section = document.querySelector('section.result');
+      const ul = document.querySelector('.result ul');
+      const btnDelete = document.createElement('i');
+      btnDelete.classList.add('bi', 'bi-x-square-fill');
+      const li = document.createElement('li');
+      const spanName = document.createElement('span');
+      spanName.classList.add('prenom');
 
-    //todo viande
-    const spanViande = document.createElement('span');
-    spanViande.classList.add('viande-span');
-    spanName.textContent = ' ' + inputValue + ' : ';
-    let viandeList = viandes.join(' - ');
-    spanViande.textContent = viandeList;
+      if (viandes !== false && sauces !== false && legumes !== false) {
+        spanName.textContent = ' ' + inputValue + ' : ';
 
-    //todo sauce
-    const spanSauce = document.createElement('span');
-    spanSauce.classList.add('sauce-span');
-    let sauceList = sauces.join(' - ');
-    spanSauce.textContent = ' | ' + sauceList;
+        //todo viande
+        const spanViande = document.createElement('span');
+        spanViande.classList.add('viande-span');
+        let viandeList = viandes.join(' - ');
+        spanViande.textContent = viandeList;
 
-    //todo légumes
-    const spanLegume = document.createElement('span');
-    spanLegume.classList.add('legume-span');
-    let legumeList = legumes.join(' - ');
-    spanLegume.textContent = ' | ' + legumeList;
+        //todo sauce
+        const spanSauce = document.createElement('span');
+        spanSauce.classList.add('sauce-span');
+        let sauceList = sauces.join(' - ');
+        spanSauce.textContent = ' | ' + sauceList;
 
-    btnDelete.addEventListener('click', app.removeTacos);
-    
-    li.append(btnDelete, spanName, spanViande, spanSauce, spanLegume);
-    ul.prepend(li);
-    
+        //todo légumes
+        const spanLegume = document.createElement('span');
+        spanLegume.classList.add('legume-span');
+        let legumeList = legumes.join(' - ');
+        spanLegume.textContent = ' | ' + legumeList;
+
+        btnDelete.addEventListener('click', app.removeTacos);
+        
+        li.append(btnDelete, spanName, spanViande, spanSauce, spanLegume);
+        ul.prepend(li);
+        input.value = '';
+      }
     } else {
-      alert('error');
+      alert('T\'es qui ?');
     }
   },
 
